@@ -1,0 +1,6 @@
+# Ignore runtime data and build artifacts
+bin/
+data/
+*.o
+*~
+.DS_Store

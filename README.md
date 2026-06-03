@@ -1,32 +1,35 @@
-# Stux Database
+# StruxDB
 
-**Strux** Database is a personal database system project written in **C**.
+A small C-based database application for registration, login, adding records, and searching saved user data.
 
-This project is currently under development and continuously evolving as i learn more about:
+## Project layout
 
-- Structures
-- Pointers
-- File systems
-- Data structures
-- Memory management
-- Systems programming
+- `src/` — application source files
+- `bin/` — compiled executables
+- `data/` — runtime storage for credentials and saved records
+- `docs/` — project documentation and architecture notes
+- `Makefile` — build helper
+- `.gitignore` — ignored files for development
+- `LICENSE` — project license
 
----
+## Build
 
-## Goal
+From the project root:
 
-The goal of this project is to gradually build Strux into a functional database/storage system through consistent development and experimentation.
+```bash
+make
+```
 
----
+This builds `bin/dbms` from `src/regndlog.c` and `src/dbms.c`.
 
-## Status
+## Run
 
-Active Development
+```bash
+./bin/dbms
+```
 
----
+The application stores credentials in `data/credentials.txt` and logged-in user records in `data/datadir/<username>.txt`.
 
-## Author
+## Documentation
 
-Developed and maintained by **Aromal J**
-
-
+See `docs/architecture.md` and `docs/usage.md` for more details.
