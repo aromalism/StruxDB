@@ -16,7 +16,7 @@ Run the following from the repository root:
 make
 ```
 
-This compiles `src/regndlog.c` and `src/dbms.c` into `bin/dbms`.
+This compiles `src/regndlog.c` and `src/dbms.c` into `bin/strux`.
 
 To remove the compiled binary:
 
@@ -29,7 +29,7 @@ make clean
 ## Running
 
 ```bash
-./bin/dbms
+./bin/strux
 ```
 
 The application creates the `data/` directory and all required subdirectories automatically on first use.
@@ -192,7 +192,7 @@ Returns to the workspace menu without closing the dataset file.
 
 | Path | Contents |
 |------|----------|
-| `data/credentials.txt` | Registered usernames and passwords, one per line |
+| `data/credentials.strux` | Registered usernames and passwords, one per line |
 | `data/users/<username>/` | Your personal dataset directory |
 | `data/users/<username>/*.strux` | Your dataset files |
 

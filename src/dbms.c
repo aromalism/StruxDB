@@ -27,17 +27,18 @@
 
 //================================================= PROTOTYPES =====================================================
 
-int dbms(char *name);
-int ensure_user_dir(char *name, char *user_dir, size_t size);
-void list_datasets(const char *user_dir);
-int create_dataset(const char *user_dir);
-int open_dataset(const char *user_dir);
-int dataset_menu(const char *dataset_path);
-int dataset_add_entry(const char *dataset_path);
-int dataset_search(const char *dataset_path);
-int dataset_show_entries(const char *dataset_path);
-int parse_fields(char *line, char fields[MAX_FIELDS][MAX_FIELD_NAME], int *count);
-int read_line(char *buffer, size_t size);
+int dbms(char *name);	// Menu system for the user workspace.
+int ensure_user_dir(char *name, char *user_dir, size_t size);	//Checks user directory exists. if yes or no it manages it.
+void list_datasets(const char *user_dir);	// Lists out the dataset.
+int create_dataset(const char *user_dir);	// Create Custom datasets.
+int open_dataset(const char *user_dir);		// Open Existing datasets.
+
+int dataset_menu(const char *dataset_path);	// Menu system inside a dataset.
+int dataset_add_entry(const char *dataset_path);	// Add entries inside a dataset.
+int dataset_search(const char *dataset_path);		// Search inside the datasets.
+int dataset_show_entries(const char *dataset_path);	// Shows all entries inside that dataset.
+int parse_fields(char *line, char fields[MAX_FIELDS][MAX_FIELD_NAME], int *count);	// Parse the fields
+int read_line(char *buffer, size_t size);	// Read a line
 
 //================================================ DBMS ===========================================================
 

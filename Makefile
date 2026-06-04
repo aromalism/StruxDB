@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Wpedantic
 SRC = src/regndlog.c src/dbms.c
-BIN = bin/dbms
+BIN = bin/strux
 
 all: $(BIN)
 

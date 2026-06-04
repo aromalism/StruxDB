@@ -6,7 +6,7 @@ StruxDB is a two-module C application. The entry point and authentication layer 
 
 ```
 ┌─────────────────────────────────────────────┐
-│                  bin/dbms                   │
+│                  bin/strux                   │
 │                                             │
 │  ┌──────────────────┐  ┌─────────────────┐  │
 │  │   regndlog.c     │  │    dbms.c       │  │
@@ -32,9 +32,9 @@ Owns the program entry point and all user identity logic.
 | Function | Responsibility |
 |----------|----------------|
 | `main()` | Displays the top-level menu (Register / Login / Exit) and dispatches to the appropriate handler. |
-| `registr()` | Collects a new username and password, validates both, confirms password match, and appends the credential pair to `data/credentials.txt`. |
-| `usercheck()` | Scans `data/credentials.txt` to verify a requested username is not already taken. |
-| `login()` | Reads credentials from stdin, scans `data/credentials.txt` for a matching pair, and on success calls `dbms()` with the authenticated username. |
+| `registr()` | Collects a new username and password, validates both, confirms password match, and appends the credential pair to `data/credentials.strux`. |
+| `usercheck()` | Scans `data/credentials.strux` to verify a requested username is not already taken. |
+| `login()` | Reads credentials from stdin, scans `data/credentials.strux` for a matching pair, and on success calls `dbms()` with the authenticated username. |
 | `analyse_username()` | Enforces username rules: 3–32 characters, letters/digits/underscores/periods only, cannot start with a digit or underscore, cannot be all digits. |
 | `analyse_password()` | Enforces password rules: 8–128 characters, must contain uppercase, lowercase, digit, and symbol; no whitespace; cannot equal the username. |
 
@@ -64,14 +64,14 @@ Owns the per-user workspace and all dataset I/O.
 
 ```
 data/
-├── credentials.txt          # One "username password" pair per line (plaintext)
+├── credentials.strux          # One "username password" pair per line (plaintext)
 └── users/
     └── <username>/
         ├── phonebook.strux  # Example dataset
         └── inventory.strux  # Another dataset
 ```
 
-### `data/credentials.txt`
+### `data/credentials.strux`
 
 Each line holds one registered account in the form:
 
@@ -143,7 +143,7 @@ Functions return one of three values:
 
 | Area | Current State | Planned |
 |------|--------------|---------|
-| Password storage | Plaintext in `credentials.txt` | Argon2id hashing via libsodium |
+| Password storage | Plaintext in `credentials.strux` | Argon2id hashing via libsodium |
 | Dataset storage | Plaintext pipe-delimited `.strux` | AES-256-GCM encrypted binary `.strux` |
 | Networking | None (local only) | TCP client–server with TLS |
 | Concurrency | None | File locking or a server-side queue |

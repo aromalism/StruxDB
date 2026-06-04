@@ -65,7 +65,6 @@ int main(void)
 			printf("\nInvalid input! Enter valid options [ 1/2/3 ]\n");
 			continue;
 		}
-
 		if ( option == 1)
 		{
 			int result = registr();		
@@ -102,8 +101,7 @@ int main(void)
 int registr (void)
 {
 	char re_password[PASSWORD_BUFFER_SIZE];
-	while( getchar() != '\n' );
-
+	
 	while(1)	// Loop for username input
 	{
 		while(1)
@@ -231,7 +229,7 @@ int usercheck(void)
 int login(void)
 {
 	char username[USERNAME_BUFFER_SIZE], password[PASSWORD_BUFFER_SIZE];
-	while ( getchar() != '\n' );	
+		
 	while(1)
 	{
 		printf("\nLogin\n");
