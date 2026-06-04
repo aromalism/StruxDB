@@ -172,7 +172,7 @@ int registr (void)
 				}
 			}
 				
-			FILE *file = fopen( "data/credentials.txt", "a" );
+			FILE *file = fopen( "data/credentials.strux", "a" );
 
 			if( file == NULL)
 			{
@@ -201,7 +201,7 @@ int usercheck(void)
 {
 	char scanbuffer[USERNAME_BUFFER_SIZE];
 
-	FILE *file = fopen( "data/credentials.txt", "r" );
+	FILE *file = fopen( "data/credentials.strux", "r" );
 
 	if ( file == NULL )
 	{
@@ -251,7 +251,7 @@ int login(void)
 	                 }
 	         }
 	
-		FILE *file = fopen( "data/credentials.txt", "r" );
+		FILE *file = fopen( "data/credentials.strux", "r" );
 
 	if ( file == NULL ) 
 	{
